@@ -1,7 +1,8 @@
 '''Configuration of the routes, or vocabulary of the bot'''
-from bottery.conf.patterns import Pattern
+from bottery.conf.patterns import Pattern, DefaultPattern
 from bottery.views import ping
-from views import help_text, consulta_conteiner, two_tokens, works
+from views import help_text, consulta_conteiner, \
+    two_tokens, works, consulta_lacre, say_help, report_api
 
 
 class FuncPattern(Pattern):
@@ -19,13 +20,13 @@ class FuncPattern(Pattern):
             return self.view
         return False
 
-# 1150454192
-
 
 patterns = [
     Pattern('ping', ping),
     Pattern('help', help_text),
     FuncPattern('cc', consulta_conteiner, two_tokens),
+    FuncPattern('ll', consulta_lacre, two_tokens),
+    FuncPattern('report', report_api, two_tokens),
     Pattern('teste', works),
-    # DefaultPattern(say_help)
+    DefaultPattern(say_help)
 ]
