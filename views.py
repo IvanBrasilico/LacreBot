@@ -65,22 +65,8 @@ def consulta_api(message, resource):
     return str_resposta, False
 
 
-class HookView():
-
-    def __init__(self, view):
-        self.view = view
-        self.hook = False
- 
-    def exec_view(self, message):
-        try:
-            response, hook = self.view(message)
-        except ValueError:
-            hook = False
-        return response, hook
-        
-
 def report_api(message):
-    '''Acessa a API da Aplicação LACRE em pythonanywhere'''
+    '''Acessa a API da Aplicação LACR em pythonanywhere'''
     try:
         _, conteiner = two_tokens(message.text)
         conteiner, status = two_tokens(conteiner)

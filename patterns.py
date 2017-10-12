@@ -3,7 +3,7 @@ from bottery.conf.patterns import Pattern, DefaultPattern
 from bottery.views import ping
 from views import help_text, consulta_conteiner, \
     two_tokens, works, consulta_lacre, say_help, report_api, \
-    list_log, HookView
+    list_log
 
 
 class FuncPattern(Pattern):
@@ -114,6 +114,7 @@ patterns = [
     Pattern('log', list_log),
     FuncPattern('cc', consulta_conteiner, two_tokens),
     FuncPattern('ll', consulta_lacre, two_tokens),
+    HookableFuncPattern('llhook', consulta_lacre, two_tokens, conversation),
     FuncPattern('report', report_api, two_tokens),
     Pattern('teste', works),
     DefaultPattern(say_help)
