@@ -8,6 +8,6 @@ venv/
 
 \.cache/v/cache/
 
-settings\.py\.old
+settings\.py
 
 
