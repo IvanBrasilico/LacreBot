@@ -24,13 +24,13 @@ def test_pattern_check_right_message():
     Check if Pattern class return the view when message checks with
     pattern.
     '''
-    def view(): return 'Hello world'
+    def view(message): return 'Hello World'
 
     def pre_process(message): return 'cc', 'MM'
     pattern = FuncPattern('cc', view, pre_process)
     message = type('Message', (object,), {'text': 'cc MM'})
     result = pattern.check(message)
-    assert result == view
+    assert result == 'Hello World'
 
 
 def test_pattern_check_wrong_message():
